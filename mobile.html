@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .accordion {
+            position: absolute;
+            top: 0;
+            font-family: sans-serif;
+            background-color: #c1a480;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 10px;
+            padding-bottom: 0;
+            box-sizing: border-box;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        .accordion-item {
+            background-color: #d2c6b7;
+            color: #f7f5f3;
+            padding: 0 10px;
+
+
+            overflow: hidden;
+
+            /* transition: max-height 0.7s ease-in-out; */
+            max-height: 0;
+            opacity: 1;
+        }
+
+        input[type="radio"]:checked~.accordion-item {
+            max-height: 500px;
+            /* 设置展开的高度 */
+            opacity: 1;
+        }
+
+        .label-wrapper {
+            cursor: pointer;
+
+            /* border-bottom: 1px solid;
+            width: 100vw;
+            text-align: center;
+            padding: 10px; */
+        }
+
+        .label-wrapper:hover .accordion-title {
+            background-color: #434544;
+
+        }
+
+        .accordion-title span {
+            position: absolute;
+            right: 35vw;
+        }
+
+        .accordion-title {
+            position: relative;
+            background-color: transparent;
+            padding: 5px;
+            display: block;
+            color: white;
+            margin: 0 10px;
+            /* margin-bottom: 0; */
+            width: 100vw;
+            text-align: center;
+            box-sizing: border-box;
+            /* transition: background-color 0.5s ease-in-out; */
+            height: 50px;
+            line-height: 40px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .sitem {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+            height: 40px;
+        }
+
+        a {
+            font-family: sans-serif;
+            color: white;
+            text-decoration: none;
+        }
+
+        .mobile {
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            /* color: white; */
+        }
+
+        .toggle-content {
+            display: none;
+            animation: fade-in-out 0.5s ease-in-out;
+            /* 添加动画 */
+        }
+
+        #toggle:checked+.toggle-content {
+            display: flex;
+            animation-name: fade-in;
+        }
+
+        #toggle:checked+.header {
+            display: flex;
+            animation-name: fade-in;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fade-in-out {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+        .header {
+            /* display:; */
+            background-color: #c2a480;
+            width: 100vw;
+            justify-content: space-between;
+            display: flex;
+            padding: 0 20px;
+            box-sizing: border-box;
+            color: #fdf9ed;
+            font-weight: bold;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cont">
+        <div class="header" id="header">
+            <img src="https://img.shoplineapp.com/media/image_clips/64a53d1e5a22c60023eb841f/original.png?1688550686" alt="" style="width: 50px;height: auto;">
+            <p>爱里时芳疗学院</p>
+          
+            <label for="toggle" >
+                <img src="https://img.shoplineapp.com/media/image_clips/656d3d8f013513001151aa88/original.png?1701657999" alt="" style="width: 40px;">
+            </label>
+        </div>
+        
+       
+        <input type="checkbox" id="toggle" style="position: absolute;right: 0px;top: 20px;opacity: 0;" />
+
+
+
+        <div class="accordion toggle-content">
+            <label for="toggle" style="position: absolute;
+            right: 20px;
+            top: 20px;
+            color: #fdf9ed;
+            font-size: 34px;
+            font-weight: bold;">
+        <img src="https://img.shoplineapp.com/media/image_clips/656d3d9bfce4c0001dd7a40d/original.png?1701658011" alt="">    
+        </label>
+            <a href="https://www.aliztwshop.com/" style="height: 25px;margin-bottom: 40px;">
+                <img src="https://img.shoplineapp.com/media/image_clips/64a53d1e5a22c60023eb841f/original.png?1688550686"
+                    alt="" style="width: 70px;">
+            </a>
+            <div class="label-wrapper">
+                <div class="accordion-title">
+                    <a href="#indro">
+                        课程介绍
+                    </a>
+                </div>
+
+            </div>
+            <div class="label-wrapper">
+
+                <input type="radio" id="item1-radio" name="accordion-radio" />
+                <label for="item1-radio" class="accordion-title">课程费用 <span style="font-size: 20px;">+</span></label>
+                <div id="item1" class="accordion-item">
+                    <a class="sitem" href="#online_fees">
+                        线上班
+                    </a>
+                    <a class="sitem" href="#Inperson_fees">
+                        面授班
+                    </a>
+                </div>
+            </div>
+
+            <div class="label-wrapper">
+                <input type="radio" id="item3-radio" name="accordion-radio" />
+                <label for="item3-radio" class="accordion-title">开班时间<span style="font-size: 20px;">+</span></label>
+                <div id="item3" class="accordion-item">
+                    <a class="sitem" href="#online_courses">
+                        线上班
+                    </a>
+                    <a class="sitem" href="#Inperson_courses">
+                        面授班
+                    </a>
+                </div>
+            </div>
+            <div class="label-wrapper">
+                <div class="accordion-title">
+                    <a href="#Process">
+                        报名流程
+                    </a>
+                </div>
+            </div>
+            <div class="label-wrapper">
+                <div class="accordion-title">
+                    <a href="#faq">
+                        常见问题
+                    </a>
+                </div>
+            </div>
+            <div class="label-wrapper">
+                <div class="accordion-title">
+                    <a href="https://www.aliztwshop.com/pages/aliz-aromatherapy-courses">
+                        更多课程
+                    </a>
+                </div>
+            </div>
+
+            <div class="label-wrapper">
+                <input type="radio" id="item2-radio" name="accordion-radio" />
+                <label for="item2-radio" class="accordion-title">语言选项 <span style="font-size: 20px;">+</span></label>
+                <div id="item2" class="accordion-item">
+                    <a class="sitem" href="https://www.aliztwshop.com/pages/naha%E5%A0%B1%E5%90%8D/?locale=zh-hant">
+                        繁体中文
+                    </a>
+                    <a class="sitem" href="https://www.aliztwshop.com/pages/naha%E5%A0%B1%E5%90%8D/?locale=zh-cn">
+                        简体中文
+                    </a>
+                    <a class="sitem" href="https://www.aliztwshop.com/pages/naha%E5%A0%B1%E5%90%8D/?locale=en">
+                        English
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
